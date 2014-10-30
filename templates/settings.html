@@ -1,0 +1,26 @@
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Settings</h4>
+      </div>
+      <div class="modal-body">
+<table class="table boredered-table">      
+{% for item in settings %}
+
+<tr><td>La zone </td><td><b>{{item[0].upper()}} </b></td><td>est complétée par</td><td> la zone </td><td><b> {{item[1].upper()}}</b></td></tr>
+{% endfor %}
+</table>
+
+*Cette section sera paramètrable dans les prochaines versions.
+</br>*Si vous êtes administrateur, vous pouvez modifier ces valeurs sur "settings.json"
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-primary">Valider</button>
+      </div>
+    </div>
+  </div>
+</div>

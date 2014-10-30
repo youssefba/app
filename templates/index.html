@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+ 
+
+
+
+
+{% block content %}
+
+{% block body %}
+
+{% include 'navigation.html' %}
+
+
+
+   
+
+      <div class="container-fluid">
+          <center><h2 class="page-header">Bienvenue à la page d'accueil</h2></center>
+            
+<ol>
+  <li>Appuyez sur "Choisissez un fichier" puis parcourez votre ordinateur et séléctionnez un fichier Excel (xls,xlsx).</li>
+  <li>Appuyez sur "Télécharger".</li>
+  <li>Optionel: Appuyez sur "Settings" et vérifier les informations.</li>
+  <li>Vérifiez les données, si tout est bon appuyez sur "Générer" en bas de la page sinon recommencez.</li>
+</ol>
+          
+            
+ 
+
+      {% include 'upload_form.html'%}
+
+{% if dataKeys %}
+
+<div id="entryData">
+      <table class="table table-striped">
+        <tr class="success">
+          {% for key in dataKeys %} <td>{{key.upper()}}</td> {% endfor %}
+        </tr>
+        {% for item in entryData %}
+        <tr>
+          {% for key in dataKeys %} <td>{{item[key]}}</td> {% endfor %}
+        </tr>
+        {% endfor %}
+      </table>  
+    </div>
+{% include "result_form.html" %}
+     </div>
+
+  
+{% endif %}
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type='text/javascript' src="{{ url_for('static', filename='bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script type='text/javascript' src="{{ url_for('static', filename='bower_components/bootstrap/docs/assets/js/docs.min.js') }}"></script>
+
+{% endblock %}
+{% endblock %}
+
+{% block head %}
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--<link rel="shortcut icon" href="{{ url_for('static', filename='../../bower_components/bootstrap/docs/assets/ico/favicon.ico') }}">-->
+
+
+    <title>Transport | Tanger | Free Zone </title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dashboard.css') }}">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../bower_components/bootstrap/docs/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<script type="text/javascript">
+
+
+
+
+
+  $("#page{{page}}").addClass( "active" );
+
+
+
+</script>
+            
+<!-- <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"> -->
+<script type='text/javascript' src="http://maps.google.com/maps/api/js?sensor=false&.js"></script>
+
+  <style type='text/css'>
+
+  body {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+  html {
+  height: 100%;
+  width: 80%;
+  margin: auto;
+}
+   
+.container-fluid{
+   height: 100%;
+  width: 100%;
+}
+
+#entryData{
+  height: 60%;
+  overflow: auto;
+}
+
+table td{
+  width: 20%;
+  text-align: center;
+}
+
+
+
+  </style>
+
+
+
+
+
+
+
+
+
+ <script type="text/javascript">
+$("#refreshAlert").hide();
+document.getElementById('searchBox').disabled = false;
+
+
+
+       </script>
+
+ 
+  
+
+
+<script type='text/javascript'>//<![CDATA[ 
+$(function(){
+$(function () { 
+    $("[data-toggle='tooltip']").tooltip(); 
+});
+});//]]>  
+
+</script>
+
+<script type='text/javascript'>//<![CDATA[ 
+$(function(){
+$(function () { 
+    $("[data-toggle='modal']").tooltip(); 
+});
+});//]]>  
+
+</script>
+<style type="text/css">
+
+.modal-vertical-centered {
+  transform: translate(0, 20%) !important;
+  -ms-transform: translate(0, 20%) !important; /* IE 9 */
+  -webkit-transform: translate(0, 20%) !important; /* Safari and Chrome */
+}
+</style>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
